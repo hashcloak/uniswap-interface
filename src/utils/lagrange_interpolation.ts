@@ -1,5 +1,5 @@
 
-function extended_gcd(a: bigint, b: bigint): Array<bigint> {
+export function extended_gcd(a: bigint, b: bigint): Array<bigint> {
 
     let s: bigint  = BigInt(0);
   
@@ -11,7 +11,7 @@ function extended_gcd(a: bigint, b: bigint): Array<bigint> {
   
     let r: bigint = b;
   
-    var old_r: bigint = a;
+    let  old_r: bigint = a;
   
   ​
   
@@ -27,17 +27,14 @@ function extended_gcd(a: bigint, b: bigint): Array<bigint> {
   
     }
   
-  ​
-  
     return [old_r, old_s, old_t];
   
   }
   
   ​
+export function mod_reduce(x: bigint, p: bigint): bigint {
   
-  function mod_reduce(x: bigint, p: bigint): bigint {
-  
-    var r = x % p;
+    let r: bigint = x % p;
   
     return r >= 0 ? r : r + p;
   
@@ -45,11 +42,11 @@ function extended_gcd(a: bigint, b: bigint): Array<bigint> {
   
   ​
   
-  function modular_inverse(x: bigint, p: bigint): bigint {
+export function modular_inverse(x: bigint, p: bigint): bigint {
   
-    var gcd, s, t;
+    let gcd: bigint, s: bigint, _t: bigint;
   
-    [gcd, s, t] = extended_gcd(x, p);
+    [gcd, s, _t] = extended_gcd(x, p);
   
     return gcd > 0 ? s : -s;
   
@@ -57,7 +54,7 @@ function extended_gcd(a: bigint, b: bigint): Array<bigint> {
   
   ​
   
-  function interpolate(n: bigint, t: bigint, r: Array<bigint>, p:bigint): bigint {
+export function interpolate(n: bigint, t: bigint, r: Array<bigint>, p:bigint): bigint {
   
     if (BigInt(r.length) !== n) {
   
@@ -66,15 +63,15 @@ function extended_gcd(a: bigint, b: bigint): Array<bigint> {
   
     }
   
-    var f0 = BigInt(0);
+    let f0 = BigInt(0);
   
-    var f;
+    let f: bigint;
   
-    for (var i = 0; i <= t; i++) {
+    for (let i = 0; i <= t; i++) {
   
       f = BigInt(1);
   
-      for (var j = 0; j <= t; j++) {
+      for (let j = 0; j <= t; j++) {
   
         if (i !== j) {
   
